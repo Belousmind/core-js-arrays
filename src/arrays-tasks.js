@@ -21,8 +21,9 @@
  *    getIntervalArray(3, 3) => [ 3 ]
  */
 function getIntervalArray(start, end) {
-  return Array.from({ length: (end - start) / 1 + 1 },
-  (value, index) => start + index * 1
+  return Array.from(
+    { length: (end - start) / 1 + 1 },
+    (value, index) => start + index * 1
   );
 }
 
@@ -121,9 +122,9 @@ function getStringsLength(arr) {
  *   getAverage([ 1, 10, 100, 1000 ])  => 277,75
  *   getAverage([ 2, 3, 3 ])  => 2,67
  */
-function getAverage(/* arr */) {
-  throw new Error('Not implemented');
-  // return arr.reduce((acc, cur) => acc + cur, 0) / arr.length;
+function getAverage(arr) {
+  const num = arr.reduce((acc, cur) => acc + cur, 0);
+  return num > 0 ? +(num / arr.length).toFixed(2) : 0;
 }
 
 /**
