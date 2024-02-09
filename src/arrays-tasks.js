@@ -42,6 +42,9 @@ function getIntervalArray(start, end) {
  */
 function sumArrays(/* arr1, arr2 */) {
   throw new Error('Not implemented');
+  // return arr2.map((item, index) => {
+  //   return item + arr1[index];
+  // });
 }
 
 /**
@@ -412,8 +415,15 @@ function getIdentityMatrix(/* n */) {
  *    getIndicesOfOddNumbers([2, 4, 6, 8, 10]) => []
  *    getIndicesOfOddNumbers([11, 22, 33, 44, 55]) => [0, 2, 4]
  */
-function getIndicesOfOddNumbers(/* numbers */) {
-  throw new Error('Not implemented');
+function getIndicesOfOddNumbers(numbers) {
+  const oddNums = [];
+  numbers.map((item, index) => {
+    if (item % 2 !== 0) {
+      oddNums.push(index);
+    }
+    return item;
+  });
+  return oddNums;
 }
 
 /**
