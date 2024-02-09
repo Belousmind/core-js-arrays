@@ -425,10 +425,11 @@ function getFalsyValuesCount(arr) {
  *                              [0,0,0,0,1]]
  */
 function getIdentityMatrix(n) {
-  const matrix = Array(n).fill(Array(n).fill(0));
-  return matrix;
+  return Array.from({ length: n }, (_, i) =>
+    Array.from({ length: n }, (__, j) => (i === j ? 1 : 0))
+  );
 }
-console.log(getIdentityMatrix(5))
+
 /**
  * Returns an array containing indices of odd elements in the input array.
  *
@@ -596,8 +597,15 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  */
 function swapHeadAndTail(/* arr */) {
   throw new Error('Not implemented');
+  // if (arr.length < 2) {
+  //   return arr;
+  // }
+  // const midle = Math.floor(arr.length / 2);
+  // return midle;
+  // head = 0, (arr.length / 2 ) // деление нужно округлить
+  // tail = (arr.length / 2 ), arr.length
 }
-
+// console.log(swapHeadAndTail([ 1, 2, 3, 4, 5 ]))
 module.exports = {
   getIntervalArray,
   sumArrays,
