@@ -342,7 +342,21 @@ function calculateBalance(arr) {
  */
 function createChunks(/* arr, chunkSize */) {
   throw new Error('Not implemented');
+  // return arr.reduce((total, item) => {
+
+  // }, [])
 }
+
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const chunkSize = 3;
+// const chunks = [];
+
+// for (let i = 0; i < arr.length; i += chunkSize) {
+//   const chunk = arr.slice(i, i + chunkSize);
+//   chunks.push(chunk);
+// }
+
+// console.log(chunks);
 
 /**
  * Generates an array of odd numbers of the specified length.
@@ -410,10 +424,11 @@ function getFalsyValuesCount(arr) {
  *                              [0,0,0,1,0],
  *                              [0,0,0,0,1]]
  */
-function getIdentityMatrix(/* n */) {
-  throw new Error('Not implemented');
+function getIdentityMatrix(n) {
+  const matrix = Array(n).fill(Array(n).fill(0));
+  return matrix;
 }
-
+console.log(getIdentityMatrix(5))
 /**
  * Returns an array containing indices of odd elements in the input array.
  *
