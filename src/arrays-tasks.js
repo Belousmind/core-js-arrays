@@ -353,17 +353,6 @@ function createChunks(arr, chunkSize) {
   return chunks.map((start) => arr.slice(start, start + chunkSize));
 }
 
-// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-// const chunkSize = 3;
-// const chunks = [];
-
-// for (let i = 0; i < arr.length; i += chunkSize) {
-//   const chunk = arr.slice(i, i + chunkSize);
-//   chunks.push(chunk);
-// }
-
-// console.log(chunks);
-
 /**
  * Generates an array of odd numbers of the specified length.
  *
@@ -392,8 +381,8 @@ function generateOdds(len) {
  *   getElementByIndices(['one','two','three'], [2]) => 'three'  (arr[2])
  *   getElementByIndices([[[ 1, 2, 3]]], [ 0, 0, 1 ]) => 2        (arr[0][0][1])
  */
-function getElementByIndices(/* arr, indices */) {
-  throw new Error('Not implemented');
+function getElementByIndices(arr, indices) {
+  return indices.reduce((current, index) => current[index], arr);
 }
 
 /**
