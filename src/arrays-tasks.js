@@ -457,10 +457,12 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  return arr.map((item) => {
+    return `#${item.toString(16).padStart(6, '0').toUpperCase()}`;
+  });
 }
-// console.log('255'.toString(16));
+
 /**
  * Returns the n largest values from the specified array
  *
@@ -590,17 +592,17 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   swapHeadAndTail([]) => []
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
-  // if (arr.length < 2) {
-  //   return arr;
-  // }
-  // const midle = Math.floor(arr.length / 2);
-  // return midle;
-  // head = 0, (arr.length / 2 ) // деление нужно округлить
-  // tail = (arr.length / 2 ), arr.length
+function swapHeadAndTail(arr) {
+  const midle = Math.ceil(arr.length / 2);
+  const tail = arr.slice(midle, arr.length);
+  if (arr.length % 2 !== 0) {
+    const head = arr.slice(0, midle - 1);
+    return tail.concat(Array.from(String(midle), Number).concat(head));
+  }
+  const head = arr.slice(0, midle);
+  return tail.concat(head);
 }
-// console.log(swapHeadAndTail([ 1, 2, 3, 4, 5 ]))
+
 module.exports = {
   getIntervalArray,
   sumArrays,
