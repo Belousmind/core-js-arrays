@@ -274,8 +274,13 @@ function distinct(arr) {
  *    createNDimensionalArray(4, 2) => [[[[0, 0], [0, 0]], [[0, 0], [0, 0]]], [[[0, 0], [0, 0]], [[0, 0], [0, 0]]]]
  *    createNDimensionalArray(1, 1) => [0]
  */
-function createNDimensionalArray(/* n, size */) {
-  throw new Error('Not implemented');
+function createNDimensionalArray(n, size) {
+  if (n === 1) {
+    return Array(size).fill(0);
+  }
+  return Array(size)
+    .fill(null)
+    .map(() => createNDimensionalArray(n - 1, size));
 }
 
 /**
@@ -541,7 +546,7 @@ function propagateItemsByPositionIndex(arr) {
     return total.concat(Array(index + 1).fill(item));
   }, []);
 }
-// console.log(propagateItemsByPositionIndex([ 1,2,3,4,5 ]))
+
 /**
  * Shifts an array by n positions. If n is negative, the array is shifted to the left;
  * if positive, it is shifted to the right.
